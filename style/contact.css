@@ -1,0 +1,67 @@
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* form */
+section {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  border: 1px solid orange;
+  padding: 0.5rem;
+}
+
+input {
+  height: 3vh;
+}
+
+label {
+  padding: 0.3rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#comment {
+  padding: 0.3rem;
+}
+
+#submit_btn {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+  width: 20vw;
+  height: 3vh;
+  align-self: center;
+  border-radius: 15px;
+  outline: none;
+  background-color: orange;
+}
+
+@media screen and (min-width: 729px) {
+  form {
+    width: 60vw;
+  }
+
+  #submit_btn {
+    width: 15vw;
+  }
+}
+
+/* footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

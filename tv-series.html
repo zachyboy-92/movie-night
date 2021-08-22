@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <link rel="stylesheet" href="./style/home.css" />
+    <link rel="stylesheet" href="./style/search.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script defer src="./javascript/home.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <div id="logo_container">
+        <img id="logo" src="./images/nav-logo.png" alt="" />
+        <p id="logo_name">MovieNight</p>
+      </div>
+      <nav id="navbar_container">
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navbar">
+          <li class="nav_list">
+            <a class="nav_links" href="./home.html">Home</a>
+          </li>
+          <li class="nav_list">
+            <a class="nav_links" href="./movies.html">Movies</a>
+          </li>
+          <li class="nav_list">
+            <a class="nav_links" href="./tv-series.html">Tv-Series</a>
+          </li>
+          <li class="nav_list">
+            <a class="nav_links" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Movies Search -->
+    <div id="search_container">
+      <div id="search">
+        <input id="input" type="text" placeholder="Enter Show" />
+        <img id="search_logo" src="./images/search-logo.svg" alt="" />
+      </div>
+      <div id="genre_container">
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+        <button class="genre_button">Action</button>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div id="socia_media">
+        <a href="#"
+          ><img
+            class="footer_logo"
+            src="./images/facebook.png"
+            alt="Facebook-logo"
+        /></a>
+        <a href="#"
+          ><img
+            class="footer_logo"
+            src="./images/twitter.png"
+            alt="Twitter-logo"
+        /></a>
+        <a href="#"
+          ><img
+            class="footer_logo"
+            src="./images/instagram.png"
+            alt="Instagram-logo"
+        /></a>
+      </div>
+      <p>
+        &copy; <span class="copyright_year">2021</span>
+        <span>MovieNight</span> By <span>Zakaria Merfouk</span>
+      </p>
+    </footer>
+  </body>
+</html>
