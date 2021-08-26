@@ -1,6 +1,9 @@
 // Modal
-var modalContainer = document.querySelector(".modal_container");
-function modalFunctionality() {
+export var modalContainer = document.querySelector(".modal_container");
+let trendingMovies = document.querySelector("#trending_movies");
+let trendingTvShows = document.querySelector("#trending_shows");
+
+export function modalFunctionality() {
   let modal = document.querySelector(".modal_content");
   // Display Modal
   function displayModal() {
@@ -8,11 +11,6 @@ function modalFunctionality() {
     imageClicked.addEventListener("click", () => {
       modal.style.display = "block";
     });
-  }
-  // Exit Modal
-  function exitModal() {
-    let exitModal = document.querySelector(".exit_btn");
-    exitModal.addEventListener("click", () => (modal.style.display = "none"));
   }
   // mouseout modal
   function exitList() {
@@ -23,32 +21,49 @@ function modalFunctionality() {
     );
   }
   displayModal();
-  exitModal();
   exitList();
 }
 
-// fetching data
-// let key = "ebffe694845c711f14854519bf607415";
-let trendingMovies = document.querySelector("#trending_movies");
-let trendingTvShows = document.querySelector("#trending_shows");
-
-let categories = {
-  movies: {
-    nowPlaying: "/movie/now_playing",
-  },
-  tvShows: {
-    topRated: "/tv/top_rated",
-  },
+export let categories = {
+  topRatedMovies:
+    "https://api.themoviedb.org/3/movie/now_playing?api_key=ebffe694845c711f14854519bf607415&language=en-US&page=1",
+  topRatedShows:
+    "https://api.themoviedb.org/3/tv/top_rated?api_key=ebffe694845c711f14854519bf607415&language=en-US&page=1",
+  genre:
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=ebffe694845c711f14854519bf607415&language=en-US",
+  tvGenre:
+    "https://api.themoviedb.org/3/genre/tv/list?api_key=ebffe694845c711f14854519bf607415&language=en-US",
 };
 
-async function fetchData(categorie) {
-  let key = "ebffe694845c711f14854519bf607415";
-  let baseUrl = "https://api.themoviedb.org/3";
-  let getData = await fetch(
-    `${baseUrl}${categorie}?api_key=${key}&language=en-US`
-  );
+export async function fetchData(data) {
+  let getData = await fetch(data);
   let response = await getData.json();
   return response;
+}
+
+// Movies Display Data Structure
+export function moviesContainer(type, result) {
+  type.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="trending_list">
+        <img class="trending_image" src=https:image.tmdb.org/t/p/w500/${result.poster_path} alt="" />
+        <div class="trending_info">
+            <p>Name: ${result.title}</p>
+            <p>Rating: ${result.vote_average}</p>
+        </div>
+    </div>`
+  );
+  modalContainer.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="modal_content">
+        <span class="exit_btn">&times;</span>
+        <div class="modal_header">
+            <p class="title">Name: ${result.title}</p>
+            <p class="rating">Rating: ${result.vote_average}</p>
+            </div>
+        <p class="description">Description: ${result.overview}</p>
+    </div>`
+  );
 }
 
 // Displaying Data
@@ -56,71 +71,52 @@ function displayMovies(callback) {
   let data = callback;
   data.then((d) => {
     let results = d.results;
-    console.log(results);
     for (let i = 0; i < results.length; i++) {
       if (i < 8) {
-        trendingMovies.insertAdjacentHTML(
-          "afterbegin",
-          `<div class="trending_list">
-              <img class="trending_image" src=https:image.tmdb.org/t/p/w500/${results[i].poster_path} alt="" />
-              <div class="trending_info">
-              <p>Name: ${results[i].title}</p>
-              <p>Rating: ${results[i].vote_average}</p>
-            </div>
-          </div>`
-        );
-        modalContainer.insertAdjacentHTML(
-          "afterbegin",
-          `<div class="modal_content">
-          <span class="exit_btn">&times;</span>
-            <div class="modal_header">
-              <p class="title">Name: ${results[i].title}</p>
-              <p class="rating">Rating: ${results[i].vote_average}</p>
-            </div>
-            <p class="description">Description: ${results[i].overview}</p>
-          </div>`
-        );
+        moviesContainer(trendingMovies, results[i]);
         modalFunctionality();
       }
     }
   });
 }
 
-function displayShows(callback) {
+// Shows Display Structure
+export function showsContainer(type, result) {
+  type.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="trending_list">
+          <img class="trending_image" src=https:image.tmdb.org/t/p/w500/${result.poster_path} alt="" />
+          <div class="trending_info">
+              <p>Name: ${result.name}</p>
+              <p>Rating: ${result.vote_average}</p>
+          </div>
+      </div>`
+  );
+  modalContainer.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="modal_content">
+          <span class="exit_btn">&times;</span>
+          <div class="modal_header">
+              <p class="title">Name: ${result.name}</p>
+              <p class="rating">Rating: ${result.vote_average}</p>
+              </div>
+          <p class="description">Description: ${result.overview}</p>
+      </div>`
+  );
+}
+
+function displayTrendingShows(callback) {
   let data = callback;
-  console.log(data);
   data.then((d) => {
     let results = d.results;
-    console.log(results);
     for (let i = 0; i < results.length; i++) {
       if (i < 8) {
-        console.log(results[i]);
-        trendingTvShows.insertAdjacentHTML(
-          "afterbegin",
-          `<div class="trending_list">
-              <img class="trending_image" src=https:image.tmdb.org/t/p/w500/${results[i].poster_path} alt="" />
-              <div class="trending_info">
-              <p>Name: ${results[i].name}</p>
-              <p>Rating: ${results[i].vote_average}</p>
-            </div>
-          </div>`
-        );
-        modalContainer.insertAdjacentHTML(
-          "afterbegin",
-          `<div class="modal_content">
-          <span class="exit_btn">&times;</span>
-            <div class="modal_header">
-              <p class="title">Name: ${results[i].name}</p>
-              <p class="rating">Rating: ${results[i].vote_average}</p>
-            </div>
-            <p class="description">Description: ${results[i].overview}</p>
-          </div>`
-        );
+        showsContainer(trendingTvShows, results[i]);
         modalFunctionality();
       }
     }
   });
 }
 
-displayShows(fetchData(categories.tvShows.topRated));
-displayMovies(fetchData(categories.movies.nowPlaying));
+displayTrendingShows(fetchData(categories.topRatedShows));
+displayMovies(fetchData(categories.topRatedMovies));

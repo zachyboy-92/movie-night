@@ -10,6 +10,12 @@
   padding: 0;
 }
 
+html,
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -82,6 +88,11 @@ header {
   text-shadow: 2px 2px yellow;
 }
 
+.nav_links:hover {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
 /* burger navbar */
 .hamburger {
   background-color: transparent;
@@ -132,6 +143,7 @@ header {
 .modal_container {
   position: fixed;
   width: 100%;
+  height: auto;
 }
 
 .modal_content {
@@ -139,8 +151,7 @@ header {
   width: 70%;
   margin: 1rem auto;
   padding: 1rem;
-  background-color: var(--secondarycolor);
-  opacity: 0.7;
+  background-color: rgba(235, 100, 27, 0.7);
 }
 
 .modal_header {
@@ -155,7 +166,7 @@ header {
 }
 
 .description {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   padding: 10px 0;
 }
 
@@ -288,6 +299,7 @@ main {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   width: 100vw;
+  height: 100%;
   padding-right: 1rem;
   padding-bottom: 2rem;
 }
@@ -334,6 +346,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0px 10px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer_logo {
