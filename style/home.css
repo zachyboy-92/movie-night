@@ -10,12 +10,20 @@
   padding: 0;
 }
 
+html,
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
 html {
   overflow-x: hidden;
 }
 
 body {
   background-color: var(--maincolor);
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -28,7 +36,8 @@ header {
   align-items: center;
   width: 100vw;
   border: 1px solid black;
-  height: 11vh;
+  height: 10vh;
+  opacity: 0.8;
 }
 
 #navbar {
@@ -79,6 +88,11 @@ header {
   text-shadow: 2px 2px yellow;
 }
 
+.nav_links:hover {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
 /* burger navbar */
 .hamburger {
   background-color: transparent;
@@ -125,7 +139,63 @@ header {
   }
 }
 
+/* Modal */
+.modal_container {
+  position: fixed;
+  width: 100%;
+  height: auto;
+}
+
+.modal_content {
+  display: none;
+  width: 70%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: rgba(235, 100, 27, 0.7);
+}
+
+.modal_header {
+  background-color: black;
+  margin: 0.5rem auto;
+}
+
+.modal_header p {
+  color: white;
+  padding: 5px;
+  font-size: 1.4rem;
+}
+
+.description {
+  font-size: 1.3rem;
+  padding: 10px 0;
+}
+
+.exit_btn {
+  float: right;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.exit_btn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 1.7rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .modal_content {
+    width: 50%;
+  }
+}
+
 /* info section */
+main {
+  overflow: hidden;
+}
+
 #info_container {
   display: flex;
   height: 25vh;
@@ -182,7 +252,7 @@ header {
 
 @media screen and (min-width: 485px) and (max-width: 767px) {
   #info_container {
-    height: 29vh;
+    height: 27vh;
   }
 
   #info {
@@ -192,7 +262,7 @@ header {
 
 @media screen and (min-width: 729px) {
   #info_container {
-    height: 27vh;
+    height: 25vh;
   }
 
   #info {
@@ -201,77 +271,74 @@ header {
 }
 
 /* movies section */
-
-#trending_container {
-  margin: 1rem auto;
+.trending_container {
+  margin: 2rem auto;
 }
 
-#trending {
+.trending {
   width: 100vw;
+  height: 3vh;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-#trending p {
+.trending p {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--secondarycolor);
 }
 
-#more_link {
+.more_link {
   color: var(--secondarycolor);
 }
 
-#trending-list_container {
+.trending_list_container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  justify-self: center;
   width: 100vw;
+  height: 100%;
   padding-right: 1rem;
+  padding-bottom: 2rem;
 }
 
 .trending_list {
   border: 1px solid var(--secondarycolor);
-  margin: 0.5rem 1rem;
+  margin: 2.5rem 1rem;
 }
 
 .trending_image {
   width: 100%;
-  height: 13rem;
+  height: 100%;
 }
 
 .trending_info {
   display: flex;
-  justify-content: space-around;
-  padding: 0.4rem 0px;
+  flex-direction: column;
+  height: auto;
+  background-color: var(--secondarycolor);
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 .trending_info p {
-  padding: 2px;
-  background-color: var(--secondarycolor);
   font-size: 1.1rem;
   font-size: 600;
   text-shadow: 2px 2px yellow;
-}
-
-@media screen and (min-width: 477px) and (max-width: 767px) {
-  #trending-list_container {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
+  padding: 2px 0px;
 }
 
 @media screen and (min-width: 768px) {
-  #trending-list_container {
+  .trending_list_container {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
 }
 
 /* footer */
-
 footer {
   background-color: var(--secondarycolor);
   height: 5vh;
@@ -279,6 +346,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0px 10px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer_logo {

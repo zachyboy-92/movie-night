@@ -58,6 +58,14 @@ label {
   }
 }
 
+/* Form Response */
+#form_response {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* footer */
 footer {
   position: absolute;

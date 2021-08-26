@@ -13,7 +13,8 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <script defer src="./javascript/home.js"></script>
+    <script defer src="./javascript/hamburger_navbar.js"></script>
+    <script type="module" defer src="./javascript/shows.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -43,25 +44,49 @@
       </nav>
     </header>
 
-    <!-- Movies Search -->
+    <!-- Modal -->
+    <section class="modal_container">
+      <!-- <div class="modal_content">
+      <div class="modal_header">
+        <span class="exit_btn">&times;</span>
+        <p class="title">title</p>
+        <p class="rating">rating</p>
+      </div>
+         class="description">description</p>
+      </div> -->
+    </section>
+
+    <!-- Tv Show Search -->
     <div id="search_container">
       <div id="search">
         <input id="input" type="text" placeholder="Enter Show" />
         <img id="search_logo" src="./images/search-logo.svg" alt="" />
       </div>
-      <div id="genre_container">
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
-        <button class="genre_button">Action</button>
+      <div id="genre_container" class="shows_btn">
+        <!-- <button class="genre_button">Action</button> -->
       </div>
     </div>
+
+    <!-- tv-shows -->
+    <section class="trending_container">
+      <div class="trending_list_container" id="shows">
+        <!-- <div class="trending_list">
+          <img class="trending_image" src="./images/johnwick3.png" alt="" />
+          <div class="trending_info">
+            <p>John Wick 3</p>
+            <p>8.6</p>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Next and Previous -->
+    <section class="buttons_container">
+      <div class="next_buttons_container">
+        <span class="previous"><--Previous</span>
+        <span class="next">Next--></span>
+      </div>
+    </section>
 
     <!-- footer -->
     <footer>
