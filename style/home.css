@@ -168,6 +168,7 @@ header {
 .description {
   font-size: 1.3rem;
   padding: 10px 0;
+  color: white;
 }
 
 .exit_btn {
@@ -277,7 +278,7 @@ main {
 
 .trending {
   width: 100vw;
-  height: 3vh;
+  height: 5vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
