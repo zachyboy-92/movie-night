@@ -85,7 +85,7 @@ export function showsContainer(type, result) {
   type.insertAdjacentHTML(
     "afterbegin",
     `<div class="trending_list">
-          <img class="trending_image" src=https:image.tmdb.org/t/p/w500${result.poster_path} alt="" />
+          <img class="trending_image" src="https:image.tmdb.org/t/p/w500${result.poster_path}" alt="" />
           <div class="trending_info">
               <p>Name: ${result.name}</p>
               <p>Rating: ${result.vote_average}</p>
