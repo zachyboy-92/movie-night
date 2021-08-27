@@ -1,3 +1,3 @@
-#Movie Night
+# movie-night
 
-Movie Night uses the movie database api to fetch and display it on the website. This api allows to get information about movies and shows from titile, rating to description.
+Movie Night is created for movies and shows lovers, it provides you with information on the latest movies and shows. This website was created using the movie database api
